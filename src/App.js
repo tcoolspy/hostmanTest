@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './App.sass';
 
-function App() {
+import TopNavBar from "./components/topnavbar";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+        <TopNavBar />
+        <hr />
+        <div className="container">
+            <div className="tile is-ancestor">
+                <div className="tile is-vertical is-8">
+                    <div className="tile">
+                        <div className="tile is-parent is-vertical">
+                            <article className="tile is-child notification is-primary">
+                                <p className="title">This app is used to test the front end hosting feature of hostman</p>
+                            </article>
+                            <article className="tile is-child notification is-warning">
+                                <p className="subtitle">This page focuses on styling using the bulma framework</p>
+                            </article>
+                        </div>
+                        <div className="tile is-parent">
+                            <article className="tile is-child notification is-info">
+                                <p className="subtitle">Middle Tile</p>
+                            </article>
+                        </div>
+                    </div>
+                    <div className="tile is-parent">
+                        <article className="tile is-child notification is-danger">
+                            <p className="subtitle">Bottom Tile</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </>
   );
 }
 
