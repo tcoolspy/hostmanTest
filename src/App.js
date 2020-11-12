@@ -9,8 +9,9 @@ import PlaceHolderUser from "./components/placeholderuser";
 const App = (props) => {
     const { app } = props.store;
     const userUrl = "https://jsonplaceholder.typicode.com/users";
-    const weatherUrl = "http://tcoolspy-001-site1.htempurl.com/weatherforecast";
+    //const weatherUrl = "http://tcoolspy-001-site1.htempurl.com/weatherforecast";
     //const weatherUrl = "https://localhost:5001/weatherforecast";
+    const ccVisitorsUrl = "https://api.cc.giwutechapps.com/api/visitor";
     const [users, setUsers] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
@@ -19,10 +20,14 @@ const App = (props) => {
                     .then(res =>  {
                         updateUsers(res.data);
                     });
-                const weatherData = await axios.get(weatherUrl)
-                    .then(wres => {
-                        console.log(wres)
-                    })
+                // const weatherData = await axios.get(weatherUrl)
+                //     .then(wres => {
+                //         console.log(wres.data)
+                //     })
+                const visitorData = await axios.get(ccVisitorsUrl)
+                    .then(v => {
+                        console.log(v.data);
+                    });
             } catch (e) {
                 console.log('Loading data error', e);
             }
@@ -32,7 +37,7 @@ const App = (props) => {
 
     const updateUsers = (usrs) => {
       setUsers(usrs);
-      console.log(usrs);
+      //console.log(usrs);
       //console.log(users);
     };
   return (
